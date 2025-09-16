@@ -11,7 +11,7 @@ public class PathFindingLayer
     public PathFindingLayer(IEngineLayer enginelayer)=>_enginelayer = enginelayer;
     public async Task<List<(int x, int y)>> FindPathAsync(int startX, int startY, int endX, int endY, CancellationToken token, IProgress<float> progress)
     {
-        return await Task.Run(() =>
+        return await Task.Run(async () =>
         {
             var openSet = new List<Node>();
             var closedSet = new HashSet<Node>();
@@ -36,7 +36,8 @@ public class PathFindingLayer
                 {
                     if (closedSet.Contains(neighbor)) continue;
                     if (!_enginelayer.IsInBounds(neighbor.X, neighbor.Y)) continue;
-                    if (_enginelayer.GetTile(neighbor.X, neighbor.Y) != EngineType.Plain) continue;
+                    var tile = await _enginelayer.GetTileAsync(neighbor.X, neighbor.Y);
+                    if (tile != EngineType.Plain) continue;
 
                     int tentativeG = current.GCost + 1;
                     var existing = openSet.FirstOrDefault(n => n.Equals(neighbor));

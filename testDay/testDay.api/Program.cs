@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddSingleton<IEngineLayer, EngineLayer>();
+builder.Services.AddSingleton<IEngineLayer>(new EngineLayer(width:1000, height:1000));
 builder.Services.AddSingleton<PathFindingQueue>();
 builder.Services.AddSingleton<PathFindingWorker>();
 builder.Services.AddSingleton<ITileMapPersistence, TileMapPersistence>();

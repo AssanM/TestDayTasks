@@ -8,12 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+    <PackageReference Include="StackExchange.Redis" Version="2.9.17" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\testDay.application\testDay.application.csproj" />
-    <ProjectReference Include="..\testDay.infrastructure\testDay.infrastructure.csproj" />
+    <ProjectReference Include="..\testDay2.application\testDay2.application.csproj" />
+    <ProjectReference Include="..\testDay2.infrastructure\testDay2.infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
