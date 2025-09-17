@@ -12,4 +12,4 @@ public interface ISurfaceLayer
     Task<bool> CanPlaceObjectInArea(int xStart, int yStart, int xEnd, int yEnd);
     Task SetTileAsync(int x, int y, SurfaceType type);
 }
-}
+

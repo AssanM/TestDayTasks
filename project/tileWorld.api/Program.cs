@@ -1,4 +1,5 @@
-﻿using StackExchange.Redis;
+﻿using LiteNetLib;
+using StackExchange.Redis;
 using tileWorld.application.Services;
 using tileWorld.domain.Interfaces;
 using tileWorld.infrastructure.Background;
@@ -14,6 +15,7 @@ builder.Services.AddSingleton<PathFindingQueue>();
 builder.Services.AddSingleton<PathFindingWorker>();
 builder.Services.AddSingleton<IObjectLayer, ObjectService>();
 builder.Services.AddSingleton<IRegionLayer, RegionLayer>();
+
 builder.Services.AddSingleton<MapUdpServer>();
 builder.Services.AddSingleton<MessageDispatcher>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tileWorld.application", "ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tileWorld.infrastructure", "tileWorld.infrastructure\tileWorld.infrastructure.csproj", "{E47CBDA7-6581-43AB-BD13-E4B0EE976C06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tileWorld.tests", "tileWorld.tests\tileWorld.tests.csproj", "{1BD0B2CE-6A6A-459C-84FC-5B34ECC3606D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{E47CBDA7-6581-43AB-BD13-E4B0EE976C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E47CBDA7-6581-43AB-BD13-E4B0EE976C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E47CBDA7-6581-43AB-BD13-E4B0EE976C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD0B2CE-6A6A-459C-84FC-5B34ECC3606D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD0B2CE-6A6A-459C-84FC-5B34ECC3606D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD0B2CE-6A6A-459C-84FC-5B34ECC3606D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD0B2CE-6A6A-459C-84FC-5B34ECC3606D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{A5D4AE9C-5F8C-4BF3-A5B1-D4AAA71A92B2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{5941C15D-8839-4533-A5AF-863A06517636} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E47CBDA7-6581-43AB-BD13-E4B0EE976C06} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1BD0B2CE-6A6A-459C-84FC-5B34ECC3606D} = {3CD13AFA-C4E6-4497-BF03-4EBF3240CBB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {377C9298-C7ED-4651-84F6-3EF459CAF12D}

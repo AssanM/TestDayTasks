@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\testDay4.application\testDay4.application.csproj" />
+    <ProjectReference Include="..\testDay4.server\testDay4.server.csproj" />
+  </ItemGroup>
+
 </Project>

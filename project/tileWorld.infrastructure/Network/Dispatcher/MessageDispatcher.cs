@@ -1,5 +1,7 @@
 ﻿using LiteNetLib;
 using MemoryPack;
+using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 using tileWorld.domain.Entities;
 using tileWorld.domain.Interfaces;
 using tileWorld.infrastructure.Network.Contracts;
@@ -11,21 +13,21 @@ public class MessageDispatcher
 {
     private readonly IObjectLayer _objectLayer;
     private readonly IRegionLayer _regionLayer;
-    private readonly MapUdpServer _server;
+    private readonly IServiceProvider _provider;
 
-    public MessageDispatcher(IObjectLayer objectLayer, IRegionLayer regionLayer, MapUdpServer server)
+    public MessageDispatcher(IObjectLayer objectLayer, IRegionLayer regionLayer, IServiceProvider provider)
     {
         _objectLayer = objectLayer;
         _regionLayer = regionLayer;
-        _server = server;
+        _provider = provider;
         _objectLayer.ObjectAdded += (_, obj) =>
-            _server.Broadcast(new ObjectAdded { Object = ToDto(obj) });
+            Broadcast(new ObjectAdded { Object = ToDto(obj) });
 
         _objectLayer.ObjectUpdated += (_, args) =>
-            _server.Broadcast(new ObjectUpdated { Object = ToDto(args.NewObject) });
+            Broadcast(new ObjectUpdated { Object = ToDto(args.NewObject) });
 
         _objectLayer.ObjectDeleted += (_, id) =>
-            _server.Broadcast(new ObjectDeleted { ObjectId = id });
+            Broadcast(new ObjectDeleted { ObjectId = id });
     }
     private MapObjectDto ToDto(MapObject obj) => new()
     {
@@ -35,6 +37,9 @@ public class MessageDispatcher
         Width = obj.Width,
         Height = obj.Height
     };
+
+    private void Broadcast<T>(T message) where T: class => Server.Broadcast(message);
+    private MapUdpServer Server => _provider.GetRequiredService<MapUdpServer>();
     public async void Handle(NetPeer peer, byte[] data)
     {
         var type = DetectType(data); // можно использовать префикс или тип в заголовке
